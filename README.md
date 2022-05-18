@@ -18,3 +18,7 @@ pour lancer le projet, il suffit de suivre les étapes suivantes:
 Avez-vous d'autres questions? 
 
 https://github.com/Thierrynjike/Thierrynjike
+
+<img width="358" alt="image" src="https://user-images.githubusercontent.com/39903360/169159831-8e15fda3-2b6a-4e7b-9484-eaec9b2fae11.png">
+
+<img width="358" alt="image" src="https://user-images.githubusercontent.com/39903360/169159939-d58836e7-b48d-43d7-9e66-bf3a71aaff20.png">
