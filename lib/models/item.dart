@@ -3,6 +3,7 @@ class Item {
   String? nom;
 
   Item(Map<String, dynamic> map) {
+    id = map['id'];
     nom = map['nom'] ?? "";
   }
 

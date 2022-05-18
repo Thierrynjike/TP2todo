@@ -71,28 +71,39 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Padding(
         padding: EdgeInsets.all(pad),
-        child: ListView.builder(
-            itemCount: items.length,
-            itemBuilder: (context, index) {
-              Item item = items[index];
-              return ListTile(
-                title: Text(
-                  item.nom ?? "No name",
-                  style: const TextStyle(color: Colors.black),
+        child: items.isEmpty
+            ? const Center(
+                child: Text(
+                  "Aucune tâche enregistrée dans votre liste",
+                  style: TextStyle(
+                    fontSize: 20.0,
+                  ),
                 ),
-                trailing: IconButton(
-                    icon: const Icon(Icons.delete),
-                    onPressed: () async {
-                      DatabaseClient().delete(item.id ?? 0, 'item').then((i) {
-                        print("Nombre d'éléments supprimés est : $i");
-                        recuperer();
-                      });
-                    }),
-                leading: IconButton(
-                    icon: const Icon(Icons.edit),
-                    onPressed: (() => ajouter(item))),
-              );
-            }),
+              )
+            : ListView.builder(
+                itemCount: items.length,
+                itemBuilder: (context, index) {
+                  Item item = items[index];
+                  return ListTile(
+                    title: Text(
+                      item.nom ?? "No name",
+                      style: const TextStyle(color: Colors.black),
+                    ),
+                    trailing: IconButton(
+                        icon: const Icon(Icons.delete),
+                        onPressed: () async {
+                          DatabaseClient()
+                              .delete(item.id ?? 0, 'item')
+                              .then((i) {
+                            print("Nombre d'éléments supprimés est : $i");
+                            recuperer();
+                          });
+                        }),
+                    leading: IconButton(
+                        icon: const Icon(Icons.edit),
+                        onPressed: (() => ajouter(item))),
+                  );
+                }),
       ),
     );
   }
